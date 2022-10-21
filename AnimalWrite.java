@@ -7,10 +7,7 @@ public class AnimalWrite {
     private int animalcount;
 
     ArrayList<String> array1 = new ArrayList<>();
-    public void AnimalWriting()  {
-        if (animalcount<=0) {
-            System.out.println("¬вед≥ть спочатку коректну к≥льк≥сть тварин");
-        } else
+    public void AnimalWriting() throws InvalidAnimalCountException  {
             for (int i = 1; i <= animalcount; i++) {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
                 try {
@@ -28,13 +25,16 @@ public class AnimalWrite {
         } else
             System.out.println("—писок тварин пустий");
     }
-    public void AnimalCount()  {
+    public void AnimalCount() throws InvalidAnimalCountException {
         System.out.println("¬вед≥ть к≥льк≥сть тварин");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try{
             animalcount = Integer.parseInt(reader.readLine());
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        if (animalcount<=0) {
+            throw new InvalidAnimalCountException("Invalid Input");
         }
     }
     public void PrintMenu(){

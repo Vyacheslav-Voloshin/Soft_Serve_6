@@ -33,7 +33,9 @@ public class Menu {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-            }finally {
+            } catch (InvalidAnimalCountException e) {
+                System.err.println("¬вед≥ть коректну к≥льк≥сть тварин");
+            } finally {
                 w.PrintMenu();
                 System.out.println("«роб≥ть виб≥р пункту меню");
             }
