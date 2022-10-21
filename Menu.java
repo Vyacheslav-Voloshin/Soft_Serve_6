@@ -10,12 +10,11 @@ public class Menu {
         System.out.println("*******************************************************************************************************");
         System.out.println("Програма яка  формує список тварин з видачею їх динамічного списку та виведенням списку названих тварин");
         System.out.println("*******************************************************************************************************");
+        w.PrintMenu();
+        System.out.println("Зробіть вибір пункту меню");
         do {
             try {
-                w.PrintMenu();
-                System.out.println("Зробіть вибір пункту меню");
-                String s = reader.readLine();
-                int number = Integer.parseInt(s);
+                int number = Integer.parseInt(reader.readLine());
                 switch (number) {
                     case 1:
                         w.AnimalCount();
@@ -32,9 +31,12 @@ public class Menu {
                     default:
                         System.out.println("Такого пункту меню не існує");
                 }
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
+            }finally {
+                w.PrintMenu();
+                System.out.println("Зробіть вибір пункту меню");
             }
-        } while (!choise) ;
+        }while (!choise) ;
     }
 }

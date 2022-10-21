@@ -9,15 +9,15 @@ public class AnimalWrite {
     ArrayList<String> array1 = new ArrayList<>();
     public void AnimalWriting()  {
         if (animalcount<=0) {
-            System.out.println("¬вед≥ть спочатку к≥льк≥сть тварин");
+            System.out.println("¬вед≥ть спочатку коректну к≥льк≥сть тварин");
         } else
             for (int i = 1; i <= animalcount; i++) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
                 try {
                     System.out.println("¬вед≥ть тип " + i + " тварини");
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
                     String animaltype = reader.readLine();
                     array1.add(animaltype);
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -28,13 +28,12 @@ public class AnimalWrite {
         } else
             System.out.println("—писок тварин пустий");
     }
-    public void AnimalCount(){
+    public void AnimalCount()  {
         System.out.println("¬вед≥ть к≥льк≥сть тварин");
-        try {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String q = reader.readLine();
-        animalcount = Integer.parseInt(q);
-        }catch (IOException e){
+        try{
+            animalcount = Integer.parseInt(reader.readLine());
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
